@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box
+}
+
+html{
+  font-size: 10px;
+}
+
+body{
+  margin: 100px;
+  background-color: #2aa9f3;
+  background-image: linear-gradient(353deg, #2aa9f3 0%, #ebf5f5 100%);
+  font-family: 'Marck Script', cursive;
+}
+
+h1{
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  color:#008500;
+  font-style: italic;
+}
+
+.field{
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #49f552;
+  box-shadow: 1px 1px 10px #38023B;
+  outline: 2px solid #38023B
+}
+
+.excel{
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
+.snakeBody{
+  background: url(img/skin2.jpg);
+  background-size: cover;
+  border-radius: 30%;
+}
+
+.snakeHead{
+  background: url(img/cat.jpg);
+  background-size: cover;
+  border-radius: 10%;
+}
+
+.mouse{
+  background:rgba(0, 0, 0, 0.01) url(img/mouse.png);
+  background-size: 100% 100%;
+  
+
+}
+
+@media (max-width: 420px) {
+  body{
+    margin: 10px;
+  }
+  .field{
+    width: 300px;
+    height: 600px;
+  }
+  .excel{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+  }
+
+}
