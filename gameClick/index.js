@@ -47,3 +47,9 @@ $game.insertAdjacentElement('afterbegin', box)
 }
 
 
+/* удалить потом */
+// var num = 3.6
+
+// console.log(Math.random())
+// console.log(Math.floor(num))
+// console.log(Math.ceil(num))
