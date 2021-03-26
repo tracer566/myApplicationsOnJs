@@ -19,8 +19,10 @@ renderBox()
 // функция для отлавливания кликов в поле игры 
 /* если в dataset есть ключ box из(box.setAttribute('data-box','true')),то клик сделан по квадрату,а не пустому полю*/
 function handleBoxClick(event){
+  // console.log('event.target:',event.target)
+  // console.log('event.target.dataset:',event.target.dataset)
 if(event.target.dataset.box){
-  // console.log(event.target.dataset)
+  console.log('event.target.dataset.box:',event.target.dataset.box)
   console.log('клик сделан по квадрату')
   score++
   renderBox() // генерирует новый квадрат
@@ -29,15 +31,22 @@ if(event.target.dataset.box){
 }
 
 function renderBox(){
+console.log('getRandom:',getRandom(30,100))//проверка рандомных значений
 $game.innerHTML = ""  //1-ое действие функции очищает поле игры,перед генерацией квадрата 
 var box = document.createElement('div')//создает новый элемент
+var boxSize = getRandom(30,100)//создаю переменную размеров квадрата и кладу ее вместо фиксированных значений ниже
+var gameSize = $game.getBoundingClientRect()//переменная и функция для измерения размеров поля игры $game
+console.log('gameSize:',gameSize,'gameSize.height:',gameSize.height,'gameSize.width:',gameSize.width)
+var maxTop = gameSize.height - boxSize //переменные случайных позиций вычисляються (высота поля - случайный размер квадрата)
+var maxLeft = gameSize.width - boxSize //переменные случайных позиций вычисляються (ширина поля - случайный размер квадрата)
+
 
 // внешний вид элемента
-box.style.height = box.style.width = "50px"
+box.style.height = box.style.width = boxSize + "px"
 box.style.position = "absolute"
 box.style.backgroundColor = "#000"
-box.style.top = "60px"
-box.style.left = "20px"
+box.style.top = getRandom( 0, maxTop ) + "px"
+box.style.left = getRandom( 0, maxLeft ) + "px"
 box.style.cursor = "pointer"
 box.setAttribute('data-box','true')
 
@@ -45,6 +54,13 @@ box.setAttribute('data-box','true')
 $game.insertAdjacentElement('afterbegin', box)
 
 }
+
+/* случайные размеры квадрата */
+function getRandom(min,max){
+  return Math.floor(Math.random() * (max - min) + min)
+}
+
+
 
 
 /* удалить потом */
