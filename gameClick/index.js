@@ -3,6 +3,7 @@ var $game = document.querySelector('#game')
 var $time = document.querySelector('#time')
 /* переменная для подсчета кликов */
 var score = 0
+var isGameStarted = false //переменная для убирания бага:"продолжение игры,когда кончилось время"
 
 // оживляю кнопку событием
 $start.addEventListener('click',startGame)
@@ -11,6 +12,7 @@ $game.addEventListener('click',handleBoxClick)
 
 // функция для кнопки: старт игры
 function startGame(){
+isGameStarted = true
 $start.classList.add('hide')
 $game.style.backgroundColor = "#7AF973"
 
@@ -18,8 +20,9 @@ $game.style.backgroundColor = "#7AF973"
 var interval = setInterval(function(){
   var time = parseFloat($time.textContent) //parseFloat переведет строку в число
   // console.log('interval',$time.textContent)
-  console.log('time:',typeof time)
+  // console.log('time:',typeof time)
   if (time <= 0){
+    clearInterval(interval)
     endGame()
   } else {
     $time.textContent = (time - 0.1).toFixed(1)
@@ -30,21 +33,15 @@ renderBox()
 }
 
 function endGame(){
-  var answer = confirm('Игра окончена.Вы хотите продолжить игру?')
-  if(answer){
-    alert('Можете продолжить')
-    $time.textContent = 125
-  } else {
-    alert('Прощайте :( я был рад вас видеть в моей игре:)')
-    $time.textContent = ''
-  }
-
-
+ isGameStarted = false
 }
 
 // функция для отлавливания кликов в поле игры 
 /* если в dataset есть ключ box из(box.setAttribute('data-box','true')),то клик сделан по квадрату,а не пустому полю*/
 function handleBoxClick(event){
+  if(!isGameStarted){
+    return
+  }
   // console.log('event.target:',event.target)
   // console.log('event.target.dataset:',event.target.dataset)
 if(event.target.dataset.box){
