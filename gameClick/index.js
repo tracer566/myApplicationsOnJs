@@ -20,13 +20,26 @@ var interval = setInterval(function(){
   // console.log('interval',$time.textContent)
   console.log('time:',typeof time)
   if (time <= 0){
-    // end game
+    endGame()
   } else {
     $time.textContent = (time - 0.1).toFixed(1)
   }
 }, 100)
 
 renderBox()
+}
+
+function endGame(){
+  var answer = confirm('Игра окончена.Вы хотите продолжить игру?')
+  if(answer){
+    alert('Можете продолжить')
+    $time.textContent = 125
+  } else {
+    alert('Прощайте :( я был рад вас видеть в моей игре:)')
+    $time.textContent = ''
+  }
+
+
 }
 
 // функция для отлавливания кликов в поле игры 
