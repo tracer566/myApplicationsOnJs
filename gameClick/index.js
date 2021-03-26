@@ -1,5 +1,6 @@
 var $start = document.querySelector('#start')
 var $game = document.querySelector('#game')
+var $time = document.querySelector('#time')
 /* переменная для подсчета кликов */
 var score = 0
 
@@ -13,6 +14,18 @@ function startGame(){
 $start.classList.add('hide')
 $game.style.backgroundColor = "#7AF973"
 
+/* реализация таймера */
+var interval = setInterval(function(){
+  var time = parseFloat($time.textContent) //parseFloat переведет строку в число
+  // console.log('interval',$time.textContent)
+  console.log('time:',typeof time)
+  if (time <= 0){
+    // end game
+  } else {
+    $time.textContent = (time - 0.1).toFixed(1)
+  }
+}, 100)
+
 renderBox()
 }
 
@@ -22,8 +35,8 @@ function handleBoxClick(event){
   // console.log('event.target:',event.target)
   // console.log('event.target.dataset:',event.target.dataset)
 if(event.target.dataset.box){
-  console.log('event.target.dataset.box:',event.target.dataset.box)
-  console.log('клик сделан по квадрату')
+  // console.log('event.target.dataset.box:',event.target.dataset.box)
+  // console.log('клик сделан по квадрату')
   score++
   renderBox() // генерирует новый квадрат
   
@@ -36,9 +49,9 @@ console.log('getRandom:',getRandom(30,90))//проверка рандомных 
 $game.innerHTML = ""  //1-ое действие функции очищает поле игры,перед генерацией квадрата 
 var box = document.createElement('div')//создает новый элемент
 var boxSize = getRandom(30,90)//создаю переменную размеров квадрата и кладу ее вместо фиксированных значений ниже
-console.log('boxSize:',boxSize);
+// console.log('boxSize:',boxSize);
 var gameSize = $game.getBoundingClientRect()//переменная и функция для измерения размеров поля игры $game
-console.log('gameSize:',gameSize,'gameSize.height:',gameSize.height,'gameSize.width:',gameSize.width)
+// console.log('gameSize:',gameSize,'gameSize.height:',gameSize.height,'gameSize.width:',gameSize.width) //вывод всех переменных в консоль
 var maxTop = gameSize.height - boxSize //переменные случайных позиций вычисляються (высота поля - случайный размер квадрата)
 var maxLeft = gameSize.width - boxSize //переменные случайных позиций вычисляються (ширина поля - случайный размер квадрата)
 
