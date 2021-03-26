@@ -30,16 +30,17 @@ if(event.target.dataset.box){
 }
 }
 
+/* функция генерирует квадраты случайнм образом */
 function renderBox(){
-console.log('getRandom:',getRandom(30,100))//проверка рандомных значений
+console.log('getRandom:',getRandom(30,90))//проверка рандомных значений
 $game.innerHTML = ""  //1-ое действие функции очищает поле игры,перед генерацией квадрата 
 var box = document.createElement('div')//создает новый элемент
-var boxSize = getRandom(30,100)//создаю переменную размеров квадрата и кладу ее вместо фиксированных значений ниже
+var boxSize = getRandom(30,90)//создаю переменную размеров квадрата и кладу ее вместо фиксированных значений ниже
+console.log('boxSize:',boxSize);
 var gameSize = $game.getBoundingClientRect()//переменная и функция для измерения размеров поля игры $game
 console.log('gameSize:',gameSize,'gameSize.height:',gameSize.height,'gameSize.width:',gameSize.width)
 var maxTop = gameSize.height - boxSize //переменные случайных позиций вычисляються (высота поля - случайный размер квадрата)
 var maxLeft = gameSize.width - boxSize //переменные случайных позиций вычисляються (ширина поля - случайный размер квадрата)
-
 
 // внешний вид элемента
 box.style.height = box.style.width = boxSize + "px"
