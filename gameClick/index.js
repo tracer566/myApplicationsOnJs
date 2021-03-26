@@ -48,8 +48,11 @@ $game.insertAdjacentElement('afterbegin', box)
 
 
 /* удалить потом */
-// var num = 3.6
+var num = 3.6
 
-// console.log(Math.random())
-// console.log(Math.floor(num))
-// console.log(Math.ceil(num))
+console.log(Math.random())//выводит случайное число <1
+console.log(Math.floor(num))//округляет в меньшую сторону
+console.log(Math.ceil(num))//округляет в большую сторону
+console.log(Math.PI *2 *10)
+
+
