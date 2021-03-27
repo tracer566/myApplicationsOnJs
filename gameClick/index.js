@@ -14,7 +14,7 @@ $game.addEventListener('click',handleBoxClick)
 function startGame(){
 isGameStarted = true
 $start.classList.add('hide')
-$game.style.backgroundColor = "#7AF973"
+$game.style.backgroundColor = "#E2FFF2"
 
 /* реализация таймера */
 var interval = setInterval(function(){
@@ -39,6 +39,7 @@ function endGame(){
 // функция для отлавливания кликов в поле игры 
 /* если в dataset есть ключ box из(box.setAttribute('data-box','true')),то клик сделан по квадрату,а не пустому полю*/
 function handleBoxClick(event){
+  /* когда таймер на нуле запрещает генерацию новых квадратов */
   if(!isGameStarted){
     return
   }
