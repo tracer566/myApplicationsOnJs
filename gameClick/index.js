@@ -1,9 +1,9 @@
-var $start = document.querySelector('#start')
-var $game = document.querySelector('#game')
-var $time = document.querySelector('#time')
+const $start = document.querySelector('#start')
+const $game = document.querySelector('#game')
+const $time = document.querySelector('#time')
 /* переменная для подсчета кликов */
-var score = 0
-var isGameStarted = false //переменная для убирания бага:"продолжение игры,когда кончилось время"
+let score = 0
+let isGameStarted = false //переменная для убирания бага:"продолжение игры,когда кончилось время"
 
 // оживляю кнопку событием
 $start.addEventListener('click',startGame)
@@ -17,8 +17,8 @@ $start.classList.add('hide')
 $game.style.backgroundColor = "#E2FFF2"
 
 /* реализация таймера */
-var interval = setInterval(function(){
-  var time = parseFloat($time.textContent) //parseFloat переведет строку в число
+let interval = setInterval(function(){
+  let time = parseFloat($time.textContent) //parseFloat переведет строку в число
   // console.log('interval',$time.textContent)
   // console.log('time:',typeof time)
   if (time <= 0){
@@ -58,13 +58,13 @@ if(event.target.dataset.box){
 function renderBox(){
 console.log('getRandom:',getRandom(30,90))//проверка рандомных значений
 $game.innerHTML = ""  //1-ое действие функции очищает поле игры,перед генерацией квадрата 
-var box = document.createElement('div')//создает новый элемент
-var boxSize = getRandom(30,90)//создаю переменную размеров квадрата и кладу ее вместо фиксированных значений ниже
+let box = document.createElement('div')//создает новый элемент
+let boxSize = getRandom(30,90)//создаю переменную размеров квадрата и кладу ее вместо фиксированных значений ниже
 // console.log('boxSize:',boxSize);
-var gameSize = $game.getBoundingClientRect()//переменная и функция для измерения размеров поля игры $game
+let gameSize = $game.getBoundingClientRect()//переменная и функция для измерения размеров поля игры $game
 // console.log('gameSize:',gameSize,'gameSize.height:',gameSize.height,'gameSize.width:',gameSize.width) //вывод всех переменных в консоль
-var maxTop = gameSize.height - boxSize //переменные случайных позиций вычисляються (высота поля - случайный размер квадрата)
-var maxLeft = gameSize.width - boxSize //переменные случайных позиций вычисляються (ширина поля - случайный размер квадрата)
+let maxTop = gameSize.height - boxSize //переменные случайных позиций вычисляються (высота поля - случайный размер квадрата)
+let maxLeft = gameSize.width - boxSize //переменные случайных позиций вычисляються (ширина поля - случайный размер квадрата)
 
 // внешний вид элемента
 box.style.height = box.style.width = boxSize + "px"
@@ -84,7 +84,6 @@ $game.insertAdjacentElement('afterbegin', box)
 function getRandom(min,max){
   return Math.floor(Math.random() * (max - min) + min)
 }
-
 
 
 
