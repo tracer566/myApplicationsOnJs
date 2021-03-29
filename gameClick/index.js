@@ -5,6 +5,7 @@ const $result = document.querySelector('#result')
 const $timeHeader = document.querySelector('#time-header')
 const $resultHeader = document.querySelector('#result-header')
 const $gameTimeSettings = document.querySelector('#game-time')
+let colors = ['#ffadad','#ffd6a5','#fdffb6','#9bf6ff','#a0c4ff','#bdb2ff','#ffc6ff','#fffffc','#000000','#14213d','#fca311']
 
 /* переменная для подсчета кликов */
 let score = 0
@@ -31,7 +32,7 @@ setGameTime()//выставляет время игры
 $gameTimeSettings.setAttribute('disabled','true')//блокирует input настройки времени если игра начата
 isGameStarted = true
 hide($start)
-$game.style.backgroundColor = "#90EE90"
+$game.style.backgroundColor = "#caffbf"
 
 /* реализация таймера */
 let interval = setInterval(function(){
@@ -95,7 +96,7 @@ if(event.target.dataset.box){
 
 /* функция генерирует квадраты случайнм образом */
 function renderBox(){
-console.log('getRandom:',getRandom(30,90))//проверка рандомных значений
+// console.log('getRandom:',getRandom(30,90))//проверка рандомных значений
 $game.innerHTML = ""  //1-ое действие функции очищает поле игры,перед генерацией квадрата 
 let box = document.createElement('div')//создает новый элемент
 let boxSize = getRandom(30,90)//создаю переменную размеров квадрата и кладу ее вместо фиксированных значений ниже
@@ -108,11 +109,14 @@ let maxLeft = gameSize.width - boxSize //переменные случайных
 // внешний вид элемента
 box.style.height = box.style.width = boxSize + "px"
 box.style.position = "absolute"
-box.style.backgroundColor = "#000"
+box.style.backgroundColor = colors[getRandom(0,colors.length)]
 box.style.top = getRandom( 0, maxTop ) + "px"
 box.style.left = getRandom( 0, maxLeft ) + "px"
 box.style.cursor = "pointer"
+box.style.boxShadow = "0px 0px 3px rgba(0,0,0,0.5)"
 box.setAttribute('data-box','true')
+
+// console.log('getRandom(0,11)',getRandom(0,11))
 
 /* добавляет созданный элемент в поле $game*/
 $game.insertAdjacentElement('afterbegin', box)
@@ -123,7 +127,6 @@ function getRandom(min,max){
   return Math.floor(Math.random() * (max - min) + min)
 }
 
-
-
+// console.log('colors[0]',colors[0])
 
 
