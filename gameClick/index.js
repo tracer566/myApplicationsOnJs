@@ -9,6 +9,9 @@ const $gameTimeSettings = document.querySelector('#game-time')
 /* переменная для подсчета кликов */
 let score = 0
 let isGameStarted = false //переменная для убирания бага:"продолжение игры,когда кончилось время"
+/* делает чтобы поле input всегда была равно полю времени,до запуска функции */
+let time = +$gameTimeSettings.value
+$time.textContent = time.toFixed(1)
 
 // оживляю кнопку событием
 $start.addEventListener('click',startGame)
@@ -32,11 +35,11 @@ let interval = setInterval(function(){
   let time = parseFloat($time.textContent) //parseFloat переведет строку в число
   // console.log('interval',$time.textContent)
   // console.log('time:',typeof time)
-  if (time <= 0){
+  if (time <= 0){  //если время подошло к концу очищаеться interval и запускаеться функция endGame()
     clearInterval(interval)
     endGame()
   } else {
-    $time.textContent = (time - 0.1).toFixed(1)
+    $time.textContent = (time - 0.1).toFixed(1) //иначе textContent уменьшаеться на 0.1сек
   }
 }, 100)
 
@@ -118,12 +121,5 @@ function getRandom(min,max){
 
 
 
-/* удалить потом */
-var num = 3.6
-
-console.log('Math.random()',Math.random())//выводит случайное число <1
-console.log(Math.floor(num))//округляет в меньшую сторону
-console.log(Math.ceil(num))//округляет в большую сторону
-console.log(Math.PI *2 *10)
 
 
