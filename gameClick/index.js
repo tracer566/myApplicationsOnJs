@@ -113,6 +113,7 @@ box.style.backgroundColor = colors[getRandom(0,11)]
 box.style.top = getRandom( 0, maxTop ) + "px"
 box.style.left = getRandom( 0, maxLeft ) + "px"
 box.style.cursor = "pointer"
+box.style.boxShadow = "0px 0px 3px rgba(0,0,0,0.5)"
 box.setAttribute('data-box','true')
 
 // console.log('getRandom(0,11)',getRandom(0,11))
