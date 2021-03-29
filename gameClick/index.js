@@ -4,6 +4,7 @@ const $time = document.querySelector('#time')
 const $result = document.querySelector('#result')
 const $timeHeader = document.querySelector('#time-header')
 const $resultHeader = document.querySelector('#result-header')
+const $gameTimeSettings = document.querySelector('#game-time')
 
 /* переменная для подсчета кликов */
 let score = 0
@@ -13,11 +14,13 @@ let isGameStarted = false //переменная для убирания баг�
 $start.addEventListener('click',startGame)
 // отлавливаю клики в поле игры через делегирование
 $game.addEventListener('click',handleBoxClick)
+$gameTimeSettings.addEventListener('input',setGameTime)
 
 // функция для кнопки: старт игры
 function startGame(){
 score = 0 //обнуляет счет игры
-setGameTime()
+setGameTime()//выставляет время игры
+$gameTimeSettings.setAttribute('disabled','true')//блокирует input настройки времени если игра начата
 $timeHeader.classList.remove('hide')
 $resultHeader.classList.add('hide')
 isGameStarted = true
@@ -47,7 +50,7 @@ function setGameScore(){
 
 /* функция устанавливает значение времени */
 function setGameTime(){
-  let time = 5
+  let time = +$gameTimeSettings.value//обязательно перевести value в число иначе не будет работать
   $time.textContent = time.toFixed(1)
 }
 
@@ -59,6 +62,7 @@ function endGame(){
  $game.innerHTML = ''//очищаю поле от отстатков квадратов
  $timeHeader.classList.add('hide')//прячу время
  $resultHeader.classList.remove('hide')//вывожу результат
+$gameTimeSettings.removeAttribute('disabled')//снимает блок с поля настройки времени,удалением аттрибута
 
  setGameScore()//вызываю функцию вывода результата
 }
