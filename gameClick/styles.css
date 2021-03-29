@@ -14,7 +14,8 @@ body {
   padding: 20px;
   overflow: hidden;
   background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
-
+  font-family: 'Roboto Mono', monospace;
+ 
 }
 
 .app {
@@ -120,6 +121,7 @@ body {
   border-radius: 2.8rem;
   transition: transform .2s ease-in-out, box-shadow .2s ease-in-out, -webkit-transform .2s ease-in-out, -webkit-box-shadow .2s ease-in-out;
   will-change: transform;
+  text-transform: uppercase;
 }
 
 .btn:disabled {
@@ -165,11 +167,13 @@ body {
     overflow: scroll;
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
   }
-.app {
-  max-width: 400px;
-  min-width: 318px;
 
-}
+  .app {
+    max-width: 400px;
+    min-width: 318px;
+
+  }
+
   .app__header {
     font-size: 14px;
     padding: 10px;
