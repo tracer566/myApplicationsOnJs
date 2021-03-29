@@ -9,9 +9,6 @@ const $gameTimeSettings = document.querySelector('#game-time')
 /* переменная для подсчета кликов */
 let score = 0
 let isGameStarted = false //переменная для убирания бага:"продолжение игры,когда кончилось время"
-/* делает чтобы поле input всегда была равно полю времени,до запуска функции */
-let time = +$gameTimeSettings.value
-$time.textContent = time.toFixed(1)
 
 // оживляю кнопку событием
 $start.addEventListener('click',startGame)
@@ -19,15 +16,21 @@ $start.addEventListener('click',startGame)
 $game.addEventListener('click',handleBoxClick)
 $gameTimeSettings.addEventListener('input',setGameTime)
 
+function show($elem){
+  $elem.classList.remove('hide')
+}
+
+function hide($elem){
+  $elem.classList.add('hide')
+}
+
 // функция для кнопки: старт игры
 function startGame(){
 score = 0 //обнуляет счет игры
 setGameTime()//выставляет время игры
 $gameTimeSettings.setAttribute('disabled','true')//блокирует input настройки времени если игра начата
-$timeHeader.classList.remove('hide')
-$resultHeader.classList.add('hide')
 isGameStarted = true
-$start.classList.add('hide')
+hide($start)
 $game.style.backgroundColor = "#90EE90"
 
 /* реализация таймера */
@@ -55,16 +58,18 @@ function setGameScore(){
 function setGameTime(){
   let time = +$gameTimeSettings.value//обязательно перевести value в число иначе не будет работать
   $time.textContent = time.toFixed(1)
+  show($timeHeader)
+  hide($resultHeader)
 }
 
 /* функция срабатывает при окончании игры */
 function endGame(){
  isGameStarted = false
- $start.classList.remove('hide')
+ show($start)
  $game.style.background = '#FFFACD'
  $game.innerHTML = ''//очищаю поле от отстатков квадратов
- $timeHeader.classList.add('hide')//прячу время
- $resultHeader.classList.remove('hide')//вывожу результат
+ hide($timeHeader)//прячу время
+ show($resultHeader)//вывожу результат
 $gameTimeSettings.removeAttribute('disabled')//снимает блок с поля настройки времени,удалением аттрибута
 
  setGameScore()//вызываю функцию вывода результата
@@ -111,7 +116,6 @@ box.setAttribute('data-box','true')
 
 /* добавляет созданный элемент в поле $game*/
 $game.insertAdjacentElement('afterbegin', box)
-
 }
 
 /* случайные размеры квадрата */
