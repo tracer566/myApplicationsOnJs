@@ -1,6 +1,10 @@
 const $start = document.querySelector('#start')
 const $game = document.querySelector('#game')
 const $time = document.querySelector('#time')
+const $result = document.querySelector('#result')
+const $timeHeader = document.querySelector('#time-header')
+const $resultHeader = document.querySelector('#result-header')
+
 /* переменная для подсчета кликов */
 let score = 0
 let isGameStarted = false //переменная для убирания бага:"продолжение игры,когда кончилось время"
@@ -12,6 +16,10 @@ $game.addEventListener('click',handleBoxClick)
 
 // функция для кнопки: старт игры
 function startGame(){
+score = 0 //обнуляет счет игры
+setGameTime()
+$timeHeader.classList.remove('hide')
+$resultHeader.classList.add('hide')
 isGameStarted = true
 $start.classList.add('hide')
 $game.style.backgroundColor = "#E2FFF2"
@@ -32,8 +40,27 @@ let interval = setInterval(function(){
 renderBox()
 }
 
+/* функция устанавливает счет игры */
+function setGameScore(){
+  $result.textContent = score.toString()
+}
+
+/* функция устанавливает значение времени */
+function setGameTime(){
+  let time = 5
+  $time.textContent = time.toFixed(1)
+}
+
+/* функция срабатывает при окончании игры */
 function endGame(){
  isGameStarted = false
+ $start.classList.remove('hide')
+ $game.style.background = '#FFFACD'
+ $game.innerHTML = ''//очищаю поле от отстатков квадратов
+ $timeHeader.classList.add('hide')//прячу время
+ $resultHeader.classList.remove('hide')//вывожу результат
+
+ setGameScore()//вызываю функцию вывода результата
 }
 
 // функция для отлавливания кликов в поле игры 
@@ -90,7 +117,7 @@ function getRandom(min,max){
 /* удалить потом */
 var num = 3.6
 
-console.log(Math.random())//выводит случайное число <1
+console.log('Math.random()',Math.random())//выводит случайное число <1
 console.log(Math.floor(num))//округляет в меньшую сторону
 console.log(Math.ceil(num))//округляет в большую сторону
 console.log(Math.PI *2 *10)
