@@ -109,7 +109,7 @@ let maxLeft = gameSize.width - boxSize //переменные случайных
 // внешний вид элемента
 box.style.height = box.style.width = boxSize + "px"
 box.style.position = "absolute"
-box.style.backgroundColor = colors[getRandom(0,11)]
+box.style.backgroundColor = colors[getRandom(0,colors.length)]
 box.style.top = getRandom( 0, maxTop ) + "px"
 box.style.left = getRandom( 0, maxLeft ) + "px"
 box.style.cursor = "pointer"
