@@ -25,7 +25,7 @@ $timeHeader.classList.remove('hide')
 $resultHeader.classList.add('hide')
 isGameStarted = true
 $start.classList.add('hide')
-$game.style.backgroundColor = "#E2FFF2"
+$game.style.backgroundColor = "#90EE90"
 
 /* реализация таймера */
 let interval = setInterval(function(){
