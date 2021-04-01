@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #99f2c8, #1f4037);
+  -webkit-user-select: none;
+          user-select: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.app {
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 4px;
+  background-color: #aeaeae;
+  padding: 4px;
+  border-radius: 10px;
+  max-width: 360px;
+  min-width: 323px;
+  border: 5px solid #2b2730;
+}
+.container .item {
+  background-color: #242020;
+  color: #fff;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+.container form {
+  max-width: 100%;
+}
+.container input {
+  height: 6rem;
+  font-size: 1.9rem;
+  outline: none;
+  text-align: right;
+  padding-right: 6px;
+  background-color: #D7D7D7;
+  box-shadow: 0px 0px 3px inset #000;
+}
+.container .input {
+  grid-column: 1/-1;
+  padding: 0;
+}
+.container .clean {
+  background-color: #FE8F35;
+  grid-column: 1/3;
+}
+.container .back {
+  grid-column: 3/-1;
+}
+.container .equal {
+  background-color: #129B49;
+  grid-column: 4;
+  grid-row: 6/8;
+}
+.container .zero {
+  grid-column: 1/3;
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 320px;
+    min-width: 310px;
+  }
+  .container input {
+    font-size: 1.7rem;
+  }
+}
