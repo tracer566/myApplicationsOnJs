@@ -20,7 +20,7 @@
       alt=""
       id="image"
     >
-
+ 
     <div class="input">
       <input
         id="img-url"
@@ -57,9 +57,20 @@
         <label for="saturate">Насыщенность</label>
         <input type="range" min="0" max="200" value="100" id="saturate">
       </div>
+      
+      <div class="slider">
+        <label for="invert">Инверсия</label>
+        <input type="range" min="0" max="100" value="0" id="invert">
+      </div>
+      
+      <div class="slider">
+        <label for="rotate">Поворот цвета</label>
+        <input type="range" min="0" max="360" value="0" id="rotate">
+      </div>
+      
     </div>
     <div class="buttons">
-      <button class="btn" id="reset" disabled>Сбросить</button>
+      <button title="Сбросить значения по умолчанию" class="btn" id="reset" disabled>Сбросить</button>
     </div>
 
   </div>
