@@ -304,7 +304,8 @@ input[type=range]:focus::-ms-fill-upper {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-width: 318px;
+    min-width: 316px;
+    max-width:318px
   }
 
   .box {
