@@ -50,7 +50,7 @@ debugger
  let title = document.createElement('h1')
  title.classList.add('title')
  title.textContent = 'Тетрис на javascript'
- if(speed >= 150){
+ if(speed < 300){
    title.textContent = 'Адский Тетрис на javascript'
  }
  main.before(title)
