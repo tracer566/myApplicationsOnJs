@@ -172,7 +172,7 @@ if(snakeBody[0].getAttribute('posX') === mouse.getAttribute('posX') && snakeBody
 
 /* окончание игры */
 if(snakeBody[0].classList.contains('snakeBody')){
-    snakeBody[0].style.background = "url('../img/scream.jpg') center center /cover no-repeat"
+    snakeBody[0].style.background = "url('../Snake/img/scream.jpg') center center /cover no-repeat"
     setTimeout(() => {
       let x = confirm(`Конец игры.Cъедено мышей: ${score} жертвы.Желаете начать новую игру?
       `)
@@ -181,7 +181,7 @@ if(snakeBody[0].classList.contains('snakeBody')){
       } else {
         alert('До свидания,друг:)')
       }
-    },200)
+    },2000)
     
     clearInterval(interval)
 }
