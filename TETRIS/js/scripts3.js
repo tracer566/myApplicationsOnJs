@@ -5,6 +5,7 @@ let isGameStarted = false
 
 modal.addEventListener('click',(e) => {
   let ev = e.target.classList
+  // let tag = e.target.tagName.toLowerCase()
   if(ev.contains('easy')){
     speed = 800
     startGame(speed)
@@ -16,6 +17,7 @@ modal.addEventListener('click',(e) => {
     startGame(speed)
   }
 
+  
   if(ev.contains('button')){
     modal.classList.add('hide')
     overlay.classList.add('hide')
@@ -42,7 +44,6 @@ if(speed >= 800){
   document.querySelector('input').style.background = "orange"
 }
 
-debugger
 
  /* 4-й урок */
  let tetris = document.createElement('div')

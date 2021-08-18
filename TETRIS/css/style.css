@@ -107,11 +107,11 @@ input{
   transition: all .3s;
   color: #fff;
   font-weight: bold;
+  text-shadow: 0px 0px 5px #000;
+
 }
 
-.button span {
-  text-shadow: 0px 0px 15px #000;
-}
+
 
 .button:hover{
   border-radius: 40px;
