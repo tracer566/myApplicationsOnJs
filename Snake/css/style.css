@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box
+}
+
+.instruction{
+  margin-top: 1rem;
+  letter-spacing: 2px;
+  font-family: 'Arial';
+  line-height: 3=0px;
+}
+
+body {
+  margin: 100px;
+  background-color: #000;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.title {
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  font-size: 2rem;
+  font-family: 'Arial', 'Gotham Pro', sans-serif;
+}
+
+.field {
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #FDDCA5;
+}
+
+.excel {
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+}
+
+.snakeBody {
+  background: url('../img/skin3.jpg');
+  background-size: cover;
+  border-radius: 45%;
+}
+
+.snakeHead {
+  background: url('../img/snake.jpg') 70% 10%;
+  background-size: 180% 120%;
+  border-radius: 30%;
+}
+
+.mouse {
+  background: url('../img/mouse2.png');
+  background-size: cover;
+  border-radius: 45%;
+}
+
+
+@media(max-width: 780px) {
+  body {
+    margin: 0px;
+  }
+}
+
+@media(max-width: 650px) {
+  body {
+    margin: 0 auto;
+  }
+
+  .field {
+    width: 400px;
+    height: 400px;
+  }
+
+  .excel {
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+  }
+}
+
+@media(max-width: 450px) {
+  body {
+    margin: 0 auto;
+  }
+
+  .field {
+    width: 300px;
+    height: 300px;
+  }
+
+  .excel {
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+  }
+}

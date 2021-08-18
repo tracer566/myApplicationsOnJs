@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+   <title>JS Game.Click Game,Git,and prototype</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  
+  <div class="app">
+    <div class="app__header">
+    
+      <h1 id="time-header">Время игры: <span id="time">5.0</span></h1>
+      <h1 id="result-header" class="hide">Ваш результат : <span id="result"></span></h1>
+    </div>
+    
+    <div class="app__content">
+      <button class="btn" id="start">Начать</button>
+
+      <div class="game" id="game"></div>
+    </div>
+ 
+    <div class="app__footer">
+      <div class="input">
+        <label for="game-time">Время игры, (сек)</label>
+        <input type="number" id="game-time" min="5" step="1" value="5">
+      </div>
+      <h4 id="now">Время на часах: <span id = "spanTime"></span></h4>
+    </div>
+    
+  </div>
+
+   
+<!-- <script src="myPractic.js"></script> -->
+  <!-- <script defer src="index.js"></script> -->
+  <script defer src="block4.js"></script>
+  <!-- <script defer src="block6.js"></script> -->
+  <!-- <script src="block6-part_2.js"></script> -->
+</body>
+</html>
+

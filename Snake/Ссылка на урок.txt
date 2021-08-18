@@ -1,0 +1,7 @@
+урок 1
+https://www.youtube.com/watch?v=x9bGncEL2Zg
+урок 2
+https://www.youtube.com/watch?v=lp_7JYriN4A
+
+createElement и append
+https://learn.javascript.ru/modifying-document
